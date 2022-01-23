@@ -26,7 +26,7 @@ func main() {
 			panic(err)
 		}
 
-		if currentLevel >= threshold && previousLevel < threshold {
+		if currentLevel >= threshold && previousLevel < threshold && batteryInfo.State == battery.Charging {
 			note := gosxnotifier.NewNotification(fmt.Sprintf("Battery reached %2.f%%", threshold*100))
 			note.Title = "Battery Alert"
 			note.Sender = "com.baida.notifybattery"
